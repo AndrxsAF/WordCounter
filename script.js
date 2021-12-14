@@ -7,11 +7,7 @@ let arr = str2.split(' ')
 let quantity = {}
 
 for (i in arr) {
-    if (quantity[arr[i].toLowerCase()] == undefined){
-        quantity[arr[i].toLowerCase()] = 1
-    } else {
-        quantity[arr[i].toLowerCase()]++
-    }
+    quantity[arr[i].toLowerCase()] ? quantity[arr[i].toLowerCase()]++ : quantity[arr[i].toLowerCase()] = 1
 }
 
 console.log(quantity)
