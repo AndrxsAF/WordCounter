@@ -2,24 +2,16 @@ let str = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vu
 
 let str1 = str.replaceAll(',', '')
 let str2 = str1.replaceAll('.', '')
-let str3 = str2.replaceAll('  ', ' ')
-let arr = str3.split(' ')
-let words = []
-for (i in arr){
-    words.push(arr[i].toLowerCase())
-    for (let j = 0; j < words.length-1; j++){
-        if (words[words.length-1].toLowerCase() == words[j].toLowerCase()){
-            words.pop()
-        }
+let arr = str2.split(' ')
+
+let quantity = {}
+
+for (i in arr) {
+    if (quantity[arr[i].toLowerCase()] == undefined){
+        quantity[arr[i].toLowerCase()] = 1
+    } else {
+        quantity[arr[i].toLowerCase()]++
     }
 }
-let wordsquantity = {}
-for (i in words){
-    wordsquantity[words[i]] = 0
-    for (j in arr){
-        if (words[i] == arr[j].toLowerCase()){
-            wordsquantity[words[i]]++ 
-        }
-    }
-}
-console.log(wordsquantity)
+
+console.log(quantity)
